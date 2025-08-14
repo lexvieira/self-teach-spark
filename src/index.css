@@ -2,41 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* I Learn by Myself - Learning Tree Design System
+   Inspired by growth, nature, and the journey of self-directed learning
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core background and foreground */
+    --background: 45 25% 98%;
+    --foreground: 155 25% 15%;
 
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 155 25% 15%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 155 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep forest green for learning growth */
+    --primary: 155 60% 25%;
+    --primary-foreground: 45 25% 98%;
+    --primary-light: 155 45% 35%;
+    --primary-glow: 155 70% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Warm earth tones */
+    --secondary: 25 45% 85%;
+    --secondary-foreground: 155 25% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 45 25% 92%;
+    --muted-foreground: 155 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Vibrant learning energy */
+    --accent: 195 85% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 195 75% 70%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Destructive states */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Interactive elements */
+    --border: 155 20% 85%;
+    --input: 155 20% 90%;
+    --ring: 155 60% 25%;
 
-    --radius: 0.5rem;
+    /* Design tokens */
+    --radius: 0.75rem;
+
+    /* Learning Tree specific colors */
+    --growth-green: 155 65% 40%;
+    --earth-brown: 25 55% 45%;
+    --inspiration-gold: 45 85% 65%;
+    --knowledge-blue: 210 75% 55%;
+    --wisdom-purple: 270 65% 60%;
+
+    /* Gradients for inspiration */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-learning: linear-gradient(180deg, hsl(var(--accent-light)), hsl(var(--accent)));
+    --gradient-growth: linear-gradient(45deg, hsl(var(--growth-green)), hsl(var(--inspiration-gold)));
+    --gradient-wisdom: linear-gradient(135deg, hsl(var(--knowledge-blue)), hsl(var(--wisdom-purple)));
+
+    /* Shadows for depth */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-learning: 0 8px 30px -8px hsl(var(--accent) / 0.2);
+    --shadow-growth: 0 12px 40px -12px hsl(var(--growth-green) / 0.3);
+
+    /* Animation tokens */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Typography scale for learning hierarchy */
+    --text-hero: 3.5rem;
+    --text-section: 2.5rem;
+    --text-feature: 1.5rem;
+    --text-body: 1.125rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +98,55 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode for evening learners */
+    --background: 155 15% 8%;
+    --foreground: 45 25% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 155 15% 10%;
+    --card-foreground: 45 25% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 155 15% 10%;
+    --popover-foreground: 45 25% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 155 50% 60%;
+    --primary-foreground: 155 15% 8%;
+    --primary-light: 155 55% 70%;
+    --primary-glow: 155 65% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 25 25% 20%;
+    --secondary-foreground: 45 25% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 155 10% 15%;
+    --muted-foreground: 155 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 195 75% 70%;
+    --accent-foreground: 155 15% 8%;
+    --accent-light: 195 65% 80%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 75% 65%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 155 15% 20%;
+    --input: 155 15% 18%;
+    --ring: 155 50% 60%;
+
+    /* Dark mode specific learning colors */
+    --growth-green: 155 55% 50%;
+    --earth-brown: 25 45% 35%;
+    --inspiration-gold: 45 75% 70%;
+    --knowledge-blue: 210 65% 65%;
+    --wisdom-purple: 270 55% 70%;
+
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-learning: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    --gradient-growth: linear-gradient(45deg, hsl(var(--growth-green)), hsl(var(--inspiration-gold)));
+    --gradient-wisdom: linear-gradient(135deg, hsl(var(--knowledge-blue)), hsl(var(--wisdom-purple)));
+
+    /* Enhanced shadows for dark mode */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-learning: 0 8px 30px -8px hsl(var(--accent) / 0.4);
+    --shadow-growth: 0 12px 40px -12px hsl(var(--growth-green) / 0.5);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +165,94 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  /* Learning-specific utility classes */
+  .text-hero {
+    font-size: var(--text-hero);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  .text-section {
+    font-size: var(--text-section);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .text-feature {
+    font-size: var(--text-feature);
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .text-body-large {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* Gradient text effects */
+  .gradient-text-hero {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-learning {
+    background: var(--gradient-learning);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-growth {
+    background: var(--gradient-growth);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animation utilities */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-grow {
+    animation: grow 2s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes grow {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Learning card hover effects */
+  .learning-card {
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .learning-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-learning);
+  }
+
+  /* Tree growth animation */
+  .tree-branch {
+    transition: var(--transition-spring);
+  }
+
+  .tree-branch:hover {
+    transform: scale(1.05);
   }
 }
