@@ -5,9 +5,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-feature font-bold gradient-text-growth">
-              I Learn by Myself
-            </h3>
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/dcc6f02f-d516-4854-b6f9-0314784a770b.png"
+                alt="I Learn by Myself logo"
+                className="w-12 h-12 object-contain"
+              />
+              <h3 className="text-feature font-bold gradient-text-growth">
+                I Learn by Myself
+              </h3>
+            </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               Empowering self-directed learners with free tools and resources. 
               Your learning tree grows as far as your imagination allows.

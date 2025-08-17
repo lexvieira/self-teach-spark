@@ -11,13 +11,20 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left space-y-8 animate-grow">
-            <div className="space-y-4">
-              <h1 className="text-hero gradient-text-hero">
-                I Learn by Myself
-              </h1>
-              <p className="text-section text-foreground/80 font-light">
-                Where Your Learning Tree Grows
-              </p>
+            <div className="flex flex-col items-center lg:items-start space-y-6">
+              <img 
+                src="/lovable-uploads/dcc6f02f-d516-4854-b6f9-0314784a770b.png"
+                alt="I Learn by Myself logo with binoculars"
+                className="w-32 h-32 object-contain"
+              />
+              <div className="space-y-4">
+                <h1 className="text-hero gradient-text-hero">
+                  I Learn by Myself
+                </h1>
+                <p className="text-section text-foreground/80 font-light">
+                  Where Your Learning Tree Grows
+                </p>
+              </div>
             </div>
             
             <p className="text-body-large text-muted-foreground max-w-2xl leading-relaxed">
