@@ -7,7 +7,7 @@ export function Tools() {
       title: "Language Translator",
       description: "Practice multiple languages with our simple, free translation tool powered by Google API. Perfect for language learners.",
       icon: <Globe className="w-6 h-6" />,
-      action: () => window.open('https://translate.ilearnbymyself.com/', '_blank'),
+      action: () => window.location.href = '/translate',
       available: true
     },
     {

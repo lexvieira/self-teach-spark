@@ -4,8 +4,16 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Play, Rewind, FastForward, Volume2, VolumeX } from "lucide-react";
+import { Loader2, Play, Rewind, FastForward, Volume2, VolumeX, Mic, MicOff, Home } from "lucide-react";
 import { toast } from "sonner";
+
+// Speech Recognition type declarations
+declare global {
+  interface Window {
+    SpeechRecognition: any;
+    webkitSpeechRecognition: any;
+  }
+}
 
 interface Translation {
   language: string;
@@ -49,7 +57,9 @@ const Translate = () => {
   const [detectedLanguage, setDetectedLanguage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
+  const recognitionRef = useRef<any>(null);
 
   const handleLanguageSelect = (language: string) => {
     if (selectedLanguages.includes(language)) {
@@ -112,11 +122,73 @@ const Translate = () => {
     }
   };
 
+  const toggleSpeechRecognition = () => {
+    if (isListening) {
+      stopListening();
+    } else {
+      startListening();
+    }
+  };
+
+  const startListening = () => {
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognitionRef.current = new SpeechRecognition();
+      
+      recognitionRef.current.continuous = false;
+      recognitionRef.current.interimResults = false;
+      recognitionRef.current.lang = 'en-US';
+
+      recognitionRef.current.onstart = () => {
+        setIsListening(true);
+        toast.success("Listening... Speak now!");
+      };
+
+      recognitionRef.current.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setInputText(transcript);
+        toast.success("Speech captured successfully!");
+      };
+
+      recognitionRef.current.onerror = (event) => {
+        toast.error("Speech recognition error: " + event.error);
+        setIsListening(false);
+      };
+
+      recognitionRef.current.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current.start();
+    } else {
+      toast.error("Speech recognition is not supported in your browser");
+    }
+  };
+
+  const stopListening = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setIsListening(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <Button
+              variant="outline"
+              onClick={() => window.location.href = '/'}
+              className="flex items-center gap-2"
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </Button>
+            <div></div> {/* Spacer for center alignment */}
+            <div></div> {/* Spacer for center alignment */}
+          </div>
           <h1 className="text-hero gradient-text-hero mb-4">
             Language Translator
           </h1>
@@ -132,13 +204,26 @@ const Translate = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-4">
-              <Input
-                placeholder="Type your text here..."
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                onKeyPress={handleKeyPress}
-                className="text-lg"
-              />
+              <div className="relative">
+                <Input
+                  placeholder="Type your text here or use the microphone..."
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  className="text-lg pr-12"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleSpeechRecognition}
+                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 ${
+                    isListening ? 'text-red-500 animate-pulse' : 'text-muted-foreground hover:text-primary'
+                  }`}
+                >
+                  {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+                </Button>
+              </div>
               
               <div className="space-y-3">
                 <h3 className="text-sm font-medium text-foreground/80">

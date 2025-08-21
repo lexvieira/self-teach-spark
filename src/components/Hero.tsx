@@ -43,7 +43,7 @@ export function Hero() {
               <HeroButton 
                 variant="outline" 
                 size="lg"
-                onClick={() => window.open('https://translate.ilearnbymyself.com/', '_blank')}
+                onClick={() => window.location.href = '/translate'}
               >
                 Try Our Translator
               </HeroButton>
