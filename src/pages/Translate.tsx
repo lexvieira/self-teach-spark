@@ -189,9 +189,16 @@ const Translate = () => {
             <div></div> {/* Spacer for center alignment */}
             <div></div> {/* Spacer for center alignment */}
           </div>
-          <h1 className="text-hero gradient-text-hero mb-4">
-            Language Translator
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <img 
+              src="/lovable-uploads/dcc6f02f-d516-4854-b6f9-0314784a770b.png"
+              alt="I Learn by Myself logo"
+              className="w-16 h-16 object-contain"
+            />
+            <h1 className="text-hero gradient-text-hero">
+              Language Translator
+            </h1>
+          </div>
           <p className="text-section text-foreground/80">
             Compare translations across multiple languages
           </p>
