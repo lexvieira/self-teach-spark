@@ -202,6 +202,29 @@ const Translate = () => {
           </p>
         </div>
 
+        {/* Video Banner */}
+        <div className="mb-8">
+          <Card className="overflow-hidden shadow-elegant border-primary/20">
+            <div className="relative">
+              <video
+                className="w-full h-48 md:h-64 object-cover"
+                controls
+                poster="/lovable-uploads/dcc6f02f-d516-4854-b6f9-0314784a770b.png"
+                preload="metadata"
+              >
+                <source src="/helptranslator.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent pointer-events-none"></div>
+            </div>
+            <CardContent className="p-4">
+              <p className="text-sm text-center text-foreground/80">
+                🎥 Learn how to use free technology tools for language learning and translation
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Input Section */}
         <Card className="mb-8 shadow-elegant">
           <CardHeader>
