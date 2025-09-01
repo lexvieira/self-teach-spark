@@ -207,7 +207,7 @@ const Translate = () => {
           <Card className="overflow-hidden shadow-elegant border-primary/20">
             <div className="relative">
               <video
-                className="w-full h-48 md:h-64 object-cover"
+                className="w-full h-48 md:h-64x object-cover"
                 controls
                 poster="/lovable-uploads/dcc6f02f-d516-4854-b6f9-0314784a770b.png"
                 preload="metadata"
