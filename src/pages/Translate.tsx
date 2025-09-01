@@ -327,7 +327,7 @@ const Translate = () => {
                                   variant="ghost"
                                   size="sm"
                                   onClick={() => playAudio(langCode, speed)}
-                                  className="h-8 px-2"
+                                  className="flex flex-col h-9 px-2 gap-0"
                                 >
                                   <Icon className="h-3 w-3 mr-1" />
                                   {label}
