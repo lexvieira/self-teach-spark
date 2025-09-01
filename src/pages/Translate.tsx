@@ -29,18 +29,16 @@ interface TranslationResponse {
 
 const AVAILABLE_LANGUAGES = [
   { code: "en", name: "English" },
+  { code: "pt", name: "Portuguese BR" },
+  { code: "th", name: "Thai" },
   { code: "es", name: "Spanish" },
   { code: "fr", name: "French" },
-  { code: "de", name: "German" },
+  { code: "pl", name: "Polish" },
   { code: "it", name: "Italian" },
-  { code: "pt", name: "Portuguese" },
-  { code: "ru", name: "Russian" },
-  { code: "ja", name: "Japanese" },
-  { code: "ko", name: "Korean" },
-  { code: "zh", name: "Chinese" },
-  { code: "ar", name: "Arabic" },
-  { code: "hi", name: "Hindi" },
-];
+  { code: "nl", name: "Dutch" },
+  { code: "lo", name: "Lao" },
+  { code: "zh-cn", name: "chinese (simplified)" },
+  ];
 
 const PLAYBACK_SPEEDS = [
   { speed: 0.25, label: "0.25x", icon: Rewind },
