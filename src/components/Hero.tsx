@@ -41,6 +41,13 @@ export function Hero() {
                 Start Your Journey
               </HeroButton>
               <HeroButton 
+                variant="secondary" 
+                size="lg"
+                onClick={() => window.location.href = '/travel'}
+              >
+                Explore Travel Tips
+              </HeroButton>
+              <HeroButton 
                 variant="outline" 
                 size="lg"
                 onClick={() => window.location.href = '/translate'}
